@@ -1,0 +1,17 @@
+### [0.8.6] Changelog - 2023/11/19
+
+- Fixed an issue causing [OnChanged] methods on NetworkArray to not work correctly. 
+- Fixed an issue causing network state changes to not be detected if they weren't done in NetworkFixedUpdate.
+
+### [0.8.4] Changelog - 2023/11/17
+
+- Fixed a CodeGen issue with parameterless Rpc methods.
+- Fixed a CodeGen issue in Unity +2022 causing "Reference has errors".
+- Fixed an issue with NetworkArray when used with a type smaller than 4 bytes, like short, causing incorrect elements to be changed when using the array indexer setter.
+- Fixed an issue with NetworkString causing the string to be longer than it should be.
+- Fixed an issue with IL2CPP causing build to fail.
+
+### [0.8.2] Changelog - 2023/11/16
+
+- Fixed a desync issue that happens with very heavy packet loss (no packets for +2 seconds).
+
