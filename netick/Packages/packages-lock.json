@@ -1,5 +1,11 @@
 {
   "dependencies": {
+    "com.stinkysteak.netcode-benchmarker-util": {
+      "version": "file:netcode-benchmarker-util",
+      "depth": 0,
+      "source": "embedded",
+      "dependencies": {}
+    },
     "com.stinkysteak.simulationtimer": {
       "version": "https://github.com/StinkySteak/Unity-Simulation-Timer.git",
       "depth": 0,

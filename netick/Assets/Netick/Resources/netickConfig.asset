@@ -15,44 +15,30 @@ MonoBehaviour:
   Assemblies:
   - Assembly-CSharp.dll
   _Prefabs:
-  - Obj: {fileID: 6276855212308729943, guid: 84bdaf9c034444f408cc66234ee3344d, type: 3}
-    InstanceId: 18254
-    Name: Bomb
-    FileName: Assets/_Benchmark/Netick/Samples/Bomberman/Network Prefabs/Bomb.prefab
-    GO: {fileID: 8886278785656527844, guid: 84bdaf9c034444f408cc66234ee3344d, type: 3}
+  - Obj: {fileID: 2440836851821840829, guid: 13a52e04f9a46af48b2b4c749cbaf1c3, type: 3}
+    InstanceId: 32892
+    Name: SphereSine
+    FileName: Assets/_Benchmark/Prefabs/SphereSine.prefab
+    GO: {fileID: 2440836851821840828, guid: 13a52e04f9a46af48b2b4c749cbaf1c3, type: 3}
     Id: 0
-  - Obj: {fileID: 8143126971102408644, guid: 98e433893a4b70f41a8ab2145afe3e07, type: 3}
-    InstanceId: 18258
-    Name: Bomberman Player
-    FileName: Assets/_Benchmark/Netick/Samples/Bomberman/Network Prefabs/Bomberman
-      Player.prefab
-    GO: {fileID: 2511112182317059464, guid: 98e433893a4b70f41a8ab2145afe3e07, type: 3}
+  - Obj: {fileID: 2440836851821840829, guid: 5a6b7b3ef7307854d85bc7e72fda4586, type: 3}
+    InstanceId: 43830
+    Name: SphereSineMoveY
+    FileName: Assets/_Benchmark/Prefabs/SphereSineMoveY.prefab
+    GO: {fileID: 2440836851821840828, guid: 5a6b7b3ef7307854d85bc7e72fda4586, type: 3}
     Id: 1
-  - Obj: {fileID: 4469672062832013922, guid: 8e254087cbaecc049ac87981c263d46c, type: 3}
-    InstanceId: 18262
-    Name: DestroyableBlock
-    FileName: Assets/_Benchmark/Netick/Samples/Bomberman/Network Prefabs/DestroyableBlock.prefab
-    GO: {fileID: 9137365252298567970, guid: 8e254087cbaecc049ac87981c263d46c, type: 3}
+  - Obj: {fileID: 2440836851821840829, guid: 4f56e6c25cc846140b914b041dbc7e90, type: 3}
+    InstanceId: 28730
+    Name: SphereWander
+    FileName: Assets/_Benchmark/Prefabs/SphereWander.prefab
+    GO: {fileID: 2440836851821840828, guid: 4f56e6c25cc846140b914b041dbc7e90, type: 3}
     Id: 2
-  - Obj: {fileID: 9177126579482737267, guid: 09a0cccbd8f361641bd963785a4b016c, type: 3}
-    InstanceId: 18266
-    Name: Power Up
-    FileName: Assets/_Benchmark/Netick/Samples/Bomberman/Network Prefabs/Power Up.prefab
-    GO: {fileID: 3064325587269614628, guid: 09a0cccbd8f361641bd963785a4b016c, type: 3}
-    Id: 3
-  - Obj: {fileID: 5100633453439203130, guid: d66d5a97430d3364890108321123b309, type: 3}
-    InstanceId: 18270
-    Name: FPS Player
-    FileName: Assets/_Benchmark/Netick/Samples/First Person Shooter/Network Prefabs/FPS
-      Player.prefab
-    GO: {fileID: 7011933354638177272, guid: d66d5a97430d3364890108321123b309, type: 3}
-    Id: 4
   Replication: 1
   TickRate: 33.333336
   MaxPlayers: 16
   MaxObjects: 512
   MaxSendableDataSize: 50000
-  AllocatorBlockSize: 131072
+  AllocatorBlockSize: 65536
   ReceiveBufferSize: 32768
   SendBufferSize: 16384
   Timeout: 10
