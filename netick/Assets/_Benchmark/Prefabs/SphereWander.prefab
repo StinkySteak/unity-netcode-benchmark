@@ -47,13 +47,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 358ca15b91f0cb04bb0b2f4c8014ebba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _behaviour:
-    _circleRadius: 5
-    _turnChance: 0.05
-    _maxRadius: 5
-    _mass: 15
-    _maxSpeed: 500
-    _maxForce: 10
+  _behaviourConfig: {fileID: 11400000, guid: 2913850a1a3a80844a4f22e4579a9307, type: 2}
 --- !u!114 &2440836851821840829
 MonoBehaviour:
   m_ObjectHideFlags: 0

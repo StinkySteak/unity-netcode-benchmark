@@ -6,17 +6,14 @@ namespace StinkySteak.NetickBenchmark
 {
     public class SineMoveBehaviour : NetworkBehaviour
     {
-        [SerializeField] private SinRandomMoveWrapper _behaviour;
-
-        private void Reset()
-        {
-            _behaviour = SinRandomMoveWrapper.CreateDefault();
-        }
+        [SerializeField] private BehaviourConfig _behaviourConfig;
+        private SinRandomMoveWrapper _behaviour;
 
         public override void NetworkStart()
         {
             if (!Object.IsServer) return;
 
+            _behaviourConfig.ApplyConfig(ref _behaviour);
             _behaviour.NetworkStart();
         }
 

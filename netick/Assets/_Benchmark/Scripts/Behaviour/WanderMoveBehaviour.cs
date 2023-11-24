@@ -6,17 +6,14 @@ namespace StinkySteak.NetickBenchmark
 {
     public class WanderMoveBehaviour : NetworkBehaviour
     {
-        [SerializeField] private WanderMoveWrapper _behaviour;
-
-        private void Reset()
-        {
-            _behaviour = WanderMoveWrapper.CreateDefault();
-        }
+        [SerializeField] private BehaviourConfig _behaviourConfig;
+        private WanderMoveWrapper _behaviour;
 
         public override void NetworkStart()
         {
             if (!Object.IsServer) return;
 
+            _behaviourConfig.ApplyConfig(ref _behaviour);
             _behaviour.NetworkStart();
         }
 
