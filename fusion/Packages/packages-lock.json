@@ -5,7 +5,7 @@
       "depth": 0,
       "source": "git",
       "dependencies": {},
-      "hash": "4a9e74bd9ddffea5dd254a5d7c14cb1d9d42a34a"
+      "hash": "ab2c539cc4d890c938a56d4ebfae9ab6c2a8af38"
     },
     "com.stinkysteak.simulationtimer": {
       "version": "https://github.com/StinkySteak/Unity-Simulation-Timer.git",
