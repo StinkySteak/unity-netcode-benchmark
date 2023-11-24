@@ -1,5 +1,26 @@
 {
   "dependencies": {
+    "com.stinkysteak.netcode-benchmarker-util": {
+      "version": "https://github.com/StinkySteak/netcode-benchmarker-util.git",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {},
+      "hash": "4a9e74bd9ddffea5dd254a5d7c14cb1d9d42a34a"
+    },
+    "com.stinkysteak.simulationtimer": {
+      "version": "https://github.com/StinkySteak/Unity-Simulation-Timer.git",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {},
+      "hash": "ab14591b3de63aeedfef7fe2c90da650e0c7d320"
+    },
+    "com.tayx.graphy": {
+      "version": "https://github.com/Tayx94/graphy.git",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {},
+      "hash": "38d5399c46530a31cbbf7fb5fa14f06a988d72bf"
+    },
     "com.unity.editorcoroutines": {
       "version": "1.0.0",
       "depth": 1,
