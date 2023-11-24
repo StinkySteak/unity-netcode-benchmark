@@ -469,10 +469,6 @@ PrefabInstance:
       value: 500
       objectReference: {fileID: 0}
     - target: {fileID: 1372732290327936084, guid: 81291fe5df6a80c4d8c99c717da9a4bb, type: 3}
-      propertyPath: _test_1.Prefab
-      value: 
-      objectReference: {fileID: 2440836851821840828, guid: 5a6b7b3ef7307854d85bc7e72fda4586, type: 3}
-    - target: {fileID: 1372732290327936084, guid: 81291fe5df6a80c4d8c99c717da9a4bb, type: 3}
       propertyPath: _networkObjectPrefab
       value: 
       objectReference: {fileID: 2440836851821840828, guid: 4f56e6c25cc846140b914b041dbc7e90, type: 3}
