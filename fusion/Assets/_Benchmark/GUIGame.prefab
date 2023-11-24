@@ -774,16 +774,16 @@ MonoBehaviour:
   _updateLatencyTextInterval: 1
   _test_1:
     ButtonExecute: {fileID: 1150314281675836540}
-    Count: 500
-    Prefab: {fileID: 2950355784111301904, guid: a9638b7c737328845b1dcb0756bc87e2, type: 3}
+    SpawnCount: 500
+    Prefab: {fileID: 2950355784111301910, guid: a9638b7c737328845b1dcb0756bc87e2, type: 3}
   _test_2:
     ButtonExecute: {fileID: 2910244756652425821}
-    Count: 500
-    Prefab: {fileID: 2985793799085134413, guid: b5ccafb5288bcff47bf412da89deaabe, type: 3}
+    SpawnCount: 500
+    Prefab: {fileID: 2985793799085134408, guid: b5ccafb5288bcff47bf412da89deaabe, type: 3}
   _test_3:
     ButtonExecute: {fileID: 7763010669235251349}
-    Count: 500
-    Prefab: {fileID: 4354572752897319621, guid: aca7888bbd192bc488e803a0b3da71f6, type: 3}
+    SpawnCount: 500
+    Prefab: {fileID: 4354572752897319624, guid: aca7888bbd192bc488e803a0b3da71f6, type: 3}
 --- !u!1 &308035472891222910
 GameObject:
   m_ObjectHideFlags: 0
