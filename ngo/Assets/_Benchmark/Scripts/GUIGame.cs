@@ -14,6 +14,16 @@ namespace StinkySteak.NGOBenchmark
             base.Initialize();
 
             _networkManager = Instantiate(_networkManagerPrefab);
+
+            RegisterPrefabs(new StressTestEssential[] { _test_1, _test_2, _test_3 });
+        }
+
+        private void RegisterPrefabs(StressTestEssential[] stressTest)
+        {
+            for (int i = 0; i < stressTest.Length; i++)
+            {
+                _networkManager.AddNetworkPrefab(stressTest[i].Prefab);
+            }
         }
 
         protected override void StartClient()
