@@ -14,7 +14,7 @@ namespace StinkySteak.FishnetBenchmark
             if (!IsServer) return;
 
             _config.ApplyConfig(ref _wrapper);
-            _wrapper.NetworkStart();
+            _wrapper.NetworkStart(transform);
             
             TimeManager.OnTick += OnTick;
         }
