@@ -12,7 +12,7 @@ namespace StinkySteak.MirrorBenchmark
         public override void OnStartServer()
         {
             _config.ApplyConfig(ref _wrapper);
-            _wrapper.NetworkStart();
+            _wrapper.NetworkStart(transform);
         }
 
         private void FixedUpdate()
