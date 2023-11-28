@@ -14,7 +14,7 @@ namespace StinkySteak.NetickBenchmark
             if (!Object.IsServer) return;
 
             _behaviourConfig.ApplyConfig(ref _behaviour);
-            _behaviour.NetworkStart();
+            _behaviour.NetworkStart(transform);
         }
 
         public override void NetworkFixedUpdate()
