@@ -51,7 +51,13 @@ namespace StinkySteak.NGOBenchmark
 
             if (!_networkManager.IsListening) return;
 
-            ulong rtt = _networkManager.NetworkConfig.NetworkTransport.GetCurrentRtt(_networkManager.LocalClientId);
+            if (_networkManager.IsServer)
+            {
+                _textLatency.SetText("Latency: 0ms (Server)");
+                return;
+            }
+
+            ulong rtt = _networkManager.NetworkConfig.NetworkTransport.GetCurrentRtt(0);
 
             _textLatency.SetText("Latency: {0}ms", rtt);
         }
