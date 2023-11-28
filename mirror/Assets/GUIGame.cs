@@ -13,6 +13,15 @@ namespace StinkySteak.MirrorBenchmark
         {
             base.Initialize();
             _networkManager = Instantiate(_networkManagerPrefab);
+            RegisterPrefabs(new StressTestEssential[] { _test_1, _test_2, _test_3 });
+        }
+
+        private void RegisterPrefabs(StressTestEssential[] stressTestEssential)
+        {
+            for (int i = 0; i < stressTestEssential.Length; i++)
+            {
+                _networkManager.spawnPrefabs.Add(stressTestEssential[i].Prefab);
+            }
         }
 
         protected override void StartClient()
@@ -27,7 +36,7 @@ namespace StinkySteak.MirrorBenchmark
 
         protected override void StressTest(StressTestEssential stressTest)
         {
-            for (int i = 0; i < stressTest.SpawnCount; i++) 
+            for (int i = 0; i < stressTest.SpawnCount; i++)
             {
                 GameObject go = Instantiate(stressTest.Prefab);
                 NetworkServer.Spawn(go);
