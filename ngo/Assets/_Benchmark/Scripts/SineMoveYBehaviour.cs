@@ -12,7 +12,7 @@ namespace StinkySteak.NGOBenchmark
         public override void OnNetworkSpawn()
         {
             _config.ApplyConfig(ref _wrapper);
-            _wrapper.NetworkStart();
+            _wrapper.NetworkStart(transform);
 
             NetworkManager.NetworkTickSystem.Tick += OnTick;
         }
