@@ -55,7 +55,7 @@ namespace StinkySteak.FusionBenchmark
 
             if (_runner.IsServer)
             {
-                _textLatency.SetText("Latency: {0}ms (Server)");
+                _textLatency.SetText("Latency: 0ms (Server)");
                 return;
             }
 
