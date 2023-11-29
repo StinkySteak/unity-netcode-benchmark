@@ -46,7 +46,7 @@ MonoBehaviour:
   ServerDivisor: 1
   ClientDivisor: 1
   PredictedClientPhysics: 0
-  PhysicsType: 1
+  PhysicsType: 0
   InvokeRenderInHeadless: 1
   RenderInvokeOrder: 1
   EnableLogging: 1
