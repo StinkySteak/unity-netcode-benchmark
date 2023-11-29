@@ -12,20 +12,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b345aa8c625f48c42b128a3818160fa1, type: 3}
   m_Name: BehaviourConfig
   m_EditorClassIdentifier: 
-  _sinYMove:
-    _minSpeed: 0.5
-    _maxSpeed: 1
-    _minAmplitude: 0.5
-    _maxAmplitude: 1
-    _randomMultiplier: 5
-  _sinAllAxisMove:
-    _minSpeed: 1
-    _maxSpeed: 1
-    _amplitude: 1
-  _wanderMove:
-    _circleRadius: 1
-    _turnChance: 0.05
-    _maxRadius: 5
-    _mass: 15
-    _maxSpeed: 3
-    _maxForce: 15
+  _moveBehaviour:
+    SinYMove:
+      _minSpeed: 0.5
+      _maxSpeed: 1
+      _minAmplitude: 0.5
+      _maxAmplitude: 1
+      _positionMaxRandom: 100
+    SinAllAxisMove:
+      _minSpeed: 0.5
+      _maxSpeed: 1
+      _amplitude: 50
+    WanderMove:
+      _circleRadius: 35
+      _turnChance: 0.05
+      _maxRadius: 2000
+      _mass: 15
+      _maxSpeed: 3
+      _maxForce: 15
+      _maxSpawnPositionRadius: 100
