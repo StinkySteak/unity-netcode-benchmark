@@ -37,6 +37,8 @@ namespace StinkySteak.FishnetBenchmark
         {
             if (_networkManager == null) return;
 
+            if (_networkManager.IsOffline) return;
+
             _textLatency.SetText("Latency: {0}ms", _networkManager.TimeManager.RoundTripTime);
         }
     }
