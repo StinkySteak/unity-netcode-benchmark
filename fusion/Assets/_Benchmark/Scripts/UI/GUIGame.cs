@@ -53,9 +53,15 @@ namespace StinkySteak.FusionBenchmark
 
             if (!_runner.IsRunning) return;
 
+            if (_runner.IsServer)
+            {
+                _textLatency.SetText("Latency: {0}ms (Server)");
+                return;
+            }
+
             float latency = (float)_runner.GetPlayerRtt(_runner.LocalPlayer) * 1000;
 
-            _textLatency.SetText("Latency: {0}ms", latency);
+            _textLatency.SetText($"Latency: {latency}ms ({_runner.NATType})");
         }
     }
 }
