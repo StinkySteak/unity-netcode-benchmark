@@ -16,25 +16,25 @@ MonoBehaviour:
   - Assembly-CSharp.dll
   _Prefabs:
   - Obj: {fileID: 2440836851821840829, guid: 13a52e04f9a46af48b2b4c749cbaf1c3, type: 3}
-    InstanceId: 32892
+    InstanceId: 18546
     Name: SphereSine
     FileName: Assets/_Benchmark/Prefabs/SphereSine.prefab
     GO: {fileID: 2440836851821840828, guid: 13a52e04f9a46af48b2b4c749cbaf1c3, type: 3}
     Id: 0
   - Obj: {fileID: 2440836851821840829, guid: 5a6b7b3ef7307854d85bc7e72fda4586, type: 3}
-    InstanceId: 43830
+    InstanceId: 18542
     Name: SphereSineMoveY
     FileName: Assets/_Benchmark/Prefabs/SphereSineMoveY.prefab
     GO: {fileID: 2440836851821840828, guid: 5a6b7b3ef7307854d85bc7e72fda4586, type: 3}
     Id: 1
   - Obj: {fileID: 2440836851821840829, guid: 4f56e6c25cc846140b914b041dbc7e90, type: 3}
-    InstanceId: 28730
+    InstanceId: 18506
     Name: SphereWander
     FileName: Assets/_Benchmark/Prefabs/SphereWander.prefab
     GO: {fileID: 2440836851821840828, guid: 4f56e6c25cc846140b914b041dbc7e90, type: 3}
     Id: 2
   Replication: 1
-  TickRate: 33.333336
+  TickRate: 20
   MaxPlayers: 16
   MaxObjects: 512
   MaxSendableDataSize: 50000
@@ -42,7 +42,7 @@ MonoBehaviour:
   ReceiveBufferSize: 32768
   SendBufferSize: 16384
   Timeout: 10
-  MaxPredicatedTicks: 64
+  MaxPredicatedTicks: 2
   ServerDivisor: 1
   ClientDivisor: 1
   PredictedClientPhysics: 0
