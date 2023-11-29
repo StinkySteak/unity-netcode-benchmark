@@ -61,7 +61,7 @@ namespace StinkySteak.FusionBenchmark
 
             float latency = (float)_runner.GetPlayerRtt(_runner.LocalPlayer) * 1000;
 
-            _textLatency.SetText($"Latency: {latency}ms ({_runner.NATType})");
+            _textLatency.SetText($"Latency: {latency}ms ({_runner.CurrentConnectionType})");
         }
     }
 }
