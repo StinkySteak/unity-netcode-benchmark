@@ -49,6 +49,12 @@ namespace StinkySteak.MirrorBenchmark
 
             if (!_networkManager.isNetworkActive) return;
 
+            if (_networkManager.mode == NetworkManagerMode.ServerOnly)
+            {
+                _textLatency.SetText("Latency: 0ms (Server)");
+                return;
+            }
+
             _textLatency.SetText("Latency: {0}ms", (float)NetworkTime.rtt);
         }
     }
