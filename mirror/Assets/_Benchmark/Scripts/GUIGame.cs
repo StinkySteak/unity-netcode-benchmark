@@ -36,6 +36,9 @@ namespace StinkySteak.MirrorBenchmark
 
         protected override void StressTest(StressTestEssential stressTest)
         {
+            //Mirror Bug, UI Button Click is replicated for late joiners
+            if (!NetworkServer.active) return;
+
             for (int i = 0; i < stressTest.SpawnCount; i++)
             {
                 GameObject go = Instantiate(stressTest.Prefab);
