@@ -55,7 +55,7 @@ namespace StinkySteak.MirrorBenchmark
                 return;
             }
 
-            _textLatency.SetText("Latency: {0}ms", (float)NetworkTime.rtt);
+            _textLatency.SetText("Latency: {0}ms", (float)NetworkTime.rtt * 1_000);
         }
     }
 }
