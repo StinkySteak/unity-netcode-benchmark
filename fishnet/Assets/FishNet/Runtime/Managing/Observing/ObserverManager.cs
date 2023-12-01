@@ -245,7 +245,7 @@ namespace FishNet.Managing.Observing
         /// </summary>
         private void ValidateLevelOfDetails()
         {
-            
+            _enableNetworkLod = false;
         }
 
     }
