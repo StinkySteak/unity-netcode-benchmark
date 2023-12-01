@@ -83,7 +83,7 @@ MonoBehaviour:
   syncDirection: 0
   syncMode: 0
   syncInterval: 0
-  target: {fileID: 6859501205988317068}
+  target: {fileID: 6859501204968983104}
   syncPosition: 1
   syncRotation: 1
   syncScale: 0
