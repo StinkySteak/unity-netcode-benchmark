@@ -1,3 +1,11 @@
+### [0.8.8] Changelog - 2023/12/2
+
+- Changed the behavior of [OnChanged] methods to act similarly to Netick 1. Now [OnChanged] methods are not called for non-default/inspector values, and only called when the property value changes during runtime.
+- Changed the default precision value of network properties to 0.001. This should greatly decrease bandwidth usage. If you don't want any compression, pass -1 to precision parameter of [Networked].
+- Fixed an issue with Auto Interpolation when passing a valid precision value to [Networked].
+- Fixed Auto Interpolation when passing a valid precision value to [Networked].
+- Fixed various other issues.
+
 ### [0.8.6] Changelog - 2023/11/19
 
 - Fixed an issue causing [OnChanged] methods on NetworkArray to not work correctly. 
