@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2440836851821840826}
   - component: {fileID: 2440836851821840829}
-  - component: {fileID: 2440836851821840827}
+  - component: {fileID: 955724030253267463}
   - component: {fileID: 5808181046274791340}
   m_Layer: 0
   m_Name: SphereSineMoveY
@@ -56,7 +56,7 @@ MonoBehaviour:
   PrefabIndex: -1
   Persistent: 0
   predictionMode: 0
---- !u!114 &2440836851821840827
+--- !u!114 &955724030253267463
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -71,8 +71,7 @@ MonoBehaviour:
   RenderTransform: {fileID: 2440836852556619081}
   TeleportDistance: 50
   PositionPrecision: 3
-  Settings: 3
-  AllowNonAuthoritativeParenting: 0
+  Settings: 31
   TransformSpace: 0
   _interpolationSource: 0
 --- !u!114 &5808181046274791340
