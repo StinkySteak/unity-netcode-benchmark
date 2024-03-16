@@ -47,7 +47,9 @@ MonoBehaviour:
   m_Script: {fileID: -1923973434, guid: da78c2c9df60edc4fb5f65b59fa57c41, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  UseAoI: 0
+  _BroadPhaseFilter: 0
+  _SpatialPrioritization: 0
+  _NarrowPhaseFilter: 0
   GlobalObjectIdHash: 2940413256
   SceneId: -1
   _PrefabId: 0
