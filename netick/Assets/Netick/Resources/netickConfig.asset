@@ -38,7 +38,8 @@ MonoBehaviour:
   MaxPlayers: 35
   MaxObjects: 512
   MaxSendableDataSize: 50000
-  AllocatorBlockSize: 65536
+  AllocatorStateBlockSize: 131072
+  AllocatorMetaBlockSize: 1048576
   ReceiveBufferSize: 32768
   SendBufferSize: 16384
   Timeout: 10
@@ -53,8 +54,11 @@ MonoBehaviour:
   SimServerLoss: 0
   SimClientLoss: 0
   EnableLagCompensation: 0
-  AoI: 0
+  EnableInterestManagement: 0
+  InterestGroupCount: 2
+  SimulationCulling: 0
   CellSize: 450
-  WorldSize: 8000
+  WorldSize: {x: 8000, y: 1, z: 8000}
+  WorldSizeHeight: 8000
   UseSceneSwitchThread: 1
   LagCompensationDebug: 1
