@@ -66,7 +66,7 @@ namespace StinkySteak.NetickBenchmark
                 serverIp = argsServerIp;
             }
 
-            Network.Sandboxs sandboxes = Network.StartAsMultiplePeers(_transportProvider, _port, null, false, clientCount);
+            Network.LaunchResults sandboxes = Network.StartAsMultiplePeers(_transportProvider, _port, null, false, false, clientCount);
 
             if (sandboxes.Clients == null) return;
 
