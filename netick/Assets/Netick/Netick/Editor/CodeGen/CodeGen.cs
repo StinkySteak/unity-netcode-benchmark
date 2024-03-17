@@ -49,19 +49,21 @@ namespace Unity.Netick.Helper.CodeGen
       var mainModule = assemblyDefinition.MainModule;
       var asm        = assemblyDefinition.MainModule.Name.Replace(".dll", "");
 
-      if ((asm == "Netick") || (asm == "Netick.Unity"))
+      if (asm == "Netick" || asm == "Netick.Unity")
           return false;
+
+      var didProcess = false;
 
       if (mainModule != null)
       {
         var weaver = new UnityCodeGen();
         weaver.Init(mainModule, _diagnostics);
         _netickILProcessor.Init(weaver, mainModule);
-        _netickILProcessor.ProcessAssembly(assemblyDefinition);
+        didProcess = _netickILProcessor.ProcessAssembly(assemblyDefinition);
       }
       else
         _diagnostics.AddError($"Cannot get main module from assembly definition: {assemblyDefinition.Name}");
-      return true;
+      return didProcess;
     }
   }
 }
