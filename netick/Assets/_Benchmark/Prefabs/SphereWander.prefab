@@ -83,7 +83,7 @@ MonoBehaviour:
   m_Script: {fileID: 682374318, guid: da78c2c9df60edc4fb5f65b59fa57c41, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  RenderTransform: {fileID: 2440836852556619081}
+  RenderTransform: {fileID: 0}
   TeleportDistance: 50
   PositionPrecision: 3
   Settings: 31
