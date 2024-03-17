@@ -784,6 +784,8 @@ MonoBehaviour:
     ButtonExecute: {fileID: 7763010669235251349}
     SpawnCount: 500
     Prefab: {fileID: 4354572752897319624, guid: aca7888bbd192bc488e803a0b3da71f6, type: 3}
+  _counter: {fileID: 0}
+  _networkProjectConfig: {fileID: -755480892457977500, guid: 49b5fadcfdaaa564f9970b67d5a91851, type: 3}
 --- !u!1 &308035472891222910
 GameObject:
   m_ObjectHideFlags: 0
