@@ -13,4 +13,4 @@ while (-not ($clientCount -as [int])) {
 }
 
 # Run the executable with the specified arguments
-Start-Process -FilePath "netcode-benchmark.exe" -ArgumentList "-autoclient", "-clientcount", "$clientCount", "-serverip", "$serverIP"
+Start-Process -FilePath "netick.exe" -ArgumentList "-autoclient", "-clientcount", "$clientCount", "-serverip", "$serverIP"

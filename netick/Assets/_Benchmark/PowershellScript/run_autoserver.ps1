@@ -5,4 +5,4 @@ while (-not ($testNumber -as [int])) {
     $testNumber = Read-Host "Enter the test number (1, 2, 3)"
 }
 
-Start-Process -FilePath "netcode-benchmark.exe" -ArgumentList "-autoserver", "-batchmode", "-nographics","-test$testNumber"
+Start-Process -FilePath "netick.exe" -ArgumentList "-autoserver", "-batchmode", "-nographics","-test$testNumber"
