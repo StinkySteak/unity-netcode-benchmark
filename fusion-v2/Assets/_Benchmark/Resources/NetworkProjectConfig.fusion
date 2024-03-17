@@ -17,7 +17,7 @@
         "SceneInfoWordCount": 16,
         "ReplicationFeatures": 1,
         "InputTransferMode": 0,
-        "PlayerCount": 10,
+        "PlayerCount": 32,
         "TickRateSelection": {
             "Client": 20,
             "ServerIndex": 0,
