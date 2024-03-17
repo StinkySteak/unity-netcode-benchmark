@@ -42,7 +42,7 @@ MonoBehaviour:
   ReceiveBufferSize: 32768
   SendBufferSize: 16384
   Timeout: 10
-  MaxPredicatedTicks: 2
+  MaxPredictedTicks: 2
   ServerDivisor: 1
   ClientDivisor: 1
   PredictedClientPhysics: 0
