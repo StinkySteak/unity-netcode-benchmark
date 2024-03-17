@@ -10,7 +10,7 @@ namespace Netick.Samples
     {
         public GameObject               SandboxPrefab;
         public NetworkTransportProvider Transport;
-        public StartMode                Mode            = StartMode.ServerAndClient;
+        public StartMode                Mode            = StartMode.MultiplePeers;
         [Range(1, 5)]
         public int                      Clients         = 1;
         public bool                     AutoStart;
@@ -46,14 +46,14 @@ namespace Netick.Samples
                         case StartMode.Client:
                             Network.StartAsClient(Transport, Port, SandboxPrefab).Connect(Port, ServerIPAddress);
                             break;
-                        case StartMode.ServerAndClient:
-                            var sandboxes = Network.StartAsServerAndClient(Transport, Port, SandboxPrefab, Clients);
+                        case StartMode.MultiplePeers:
+                            ////var sandboxes = Network.StartAsMultiplePeers(Transport, Port, SandboxPrefab, Clients);
 
-                            if (AutoConnect)
-                            {
-                                for (int i = 0; i < sandboxes.Clients.Length; i++)
-                                    sandboxes.Clients[i].Connect(Port, ServerIPAddress);
-                            }
+                            //if (AutoConnect)
+                            //{
+                            //    for (int i = 0; i < sandboxes.Clients.Length; i++)
+                            //        sandboxes.Clients[i].Connect(Port, ServerIPAddress);
+                            //}
 
 
                             break;
