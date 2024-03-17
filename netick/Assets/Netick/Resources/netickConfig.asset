@@ -35,7 +35,7 @@ MonoBehaviour:
     Id: 2
   Replication: 1
   TickRate: 20
-  MaxPlayers: 16
+  MaxPlayers: 35
   MaxObjects: 512
   MaxSendableDataSize: 50000
   AllocatorBlockSize: 65536
