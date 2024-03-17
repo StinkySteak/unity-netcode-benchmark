@@ -515,7 +515,9 @@ MonoBehaviour:
     SpawnCount: 500
     Prefab: {fileID: 2440836851821840828, guid: 4f56e6c25cc846140b914b041dbc7e90, type: 3}
   _transportProvider: {fileID: 11400000, guid: 45d8249dfdf511d429f92c6a4a4e26f4, type: 2}
+  _sandboxPrefab: {fileID: 3016918408771957257, guid: 22e568397887f8e4f85c62aa50474294, type: 3}
   _port: 25565
+  _counter: {fileID: 0}
 --- !u!1 &1372732290734314983
 GameObject:
   m_ObjectHideFlags: 0
