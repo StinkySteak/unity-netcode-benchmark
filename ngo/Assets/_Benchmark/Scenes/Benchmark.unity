@@ -275,6 +275,17 @@ MonoBehaviour:
   m_InputActionsPerSecond: 10
   m_RepeatDelay: 0.5
   m_ForceModuleActive: 0
+--- !u!114 &1447261353 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8951811057677017766, guid: 4df4ce9b8bee3eb479a5ab4a29ca58e7, type: 3}
+  m_PrefabInstance: {fileID: 4741894162097780912}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1939056285
 GameObject:
   m_ObjectHideFlags: 0
@@ -330,6 +341,18 @@ PrefabInstance:
       propertyPath: _counter
       value: 
       objectReference: {fileID: 1939056286}
+    - target: {fileID: 4741894161092906035, guid: 4df4ce9b8bee3eb479a5ab4a29ca58e7, type: 3}
+      propertyPath: _test_4.Prefab
+      value: 
+      objectReference: {fileID: 3557300497773733677, guid: aa49dc41a8a9af942ba5e06c46d44abe, type: 3}
+    - target: {fileID: 4741894161092906035, guid: 4df4ce9b8bee3eb479a5ab4a29ca58e7, type: 3}
+      propertyPath: _test_4.SpawnCount
+      value: 500
+      objectReference: {fileID: 0}
+    - target: {fileID: 4741894161092906035, guid: 4df4ce9b8bee3eb479a5ab4a29ca58e7, type: 3}
+      propertyPath: _test_4.ButtonExecute
+      value: 
+      objectReference: {fileID: 1447261353}
     - target: {fileID: 7575221329336463474, guid: 4df4ce9b8bee3eb479a5ab4a29ca58e7, type: 3}
       propertyPath: m_Name
       value: GUIGame

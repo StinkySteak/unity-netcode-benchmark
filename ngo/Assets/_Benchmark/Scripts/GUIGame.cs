@@ -1,7 +1,5 @@
 using StinkySteak.NetcodeBenchmark;
 using StinkySteak.NetcodeBenchmark.Util;
-using System.IO;
-using System.Text;
 using Unity.Netcode;
 using Unity.Netcode.Transports.UTP;
 using UnityEngine;
@@ -11,29 +9,18 @@ namespace StinkySteak.NGOBenchmark
     public class GUIGame : BaseGUIGame
     {
         [SerializeField] private NetworkManager _networkManagerPrefab;
-        private NetworkManager _networkManager;
-
         [SerializeField] private FrametimeCounter _counter;
 
-        private const int STRING_BUILDER_CAPACITY = 100;
-        private StringBuilder _stringBuilder = new(STRING_BUILDER_CAPACITY);
-
-        private const string ARGS_AUTO_CLIENT = "-autoclient";
-        private const string ARGS_AUTO_SERVER = "-autoserver";
-        private const string ARGS_CLIENT_COUNT = "-clientcount";
-        private const string ARGS_SERVER_IP = "-serverip";
-
-        private SimulationTimer.SimulationTimer _timerServerLog;
-        private float _intervalServerLog = 1f;
-        private string _filePath;
+        private NetworkManager _networkManager;
+        private FrametimeLogger _frametimeLogger;
 
         protected override void MonoStart()
         {
-            _filePath = Application.persistentDataPath + "/NGOServerOutput.txt";
-
+            _frametimeLogger = new();
+            _frametimeLogger.Initialize();
             _networkManager = Instantiate(_networkManagerPrefab);
 
-            RegisterPrefabs(new StressTestEssential[] { _test_1, _test_2, _test_3 });
+            RegisterPrefabs(new StressTestEssential[] { _test_1, _test_2, _test_3, _test_4 });
 
             RunAutoServer();
             RunAutoClient();
@@ -41,7 +28,7 @@ namespace StinkySteak.NGOBenchmark
 
         private void RunAutoServer()
         {
-            bool isAutoServer = HeadlessUtils.HasArg(ARGS_AUTO_SERVER);
+            bool isAutoServer = HeadlessUtils.HasArg(HeadlessArguments.AUTO_SERVER);
 
             if (!isAutoServer) return;
 
@@ -52,11 +39,11 @@ namespace StinkySteak.NGOBenchmark
         {
             string serverIp = string.Empty;
 
-            bool isAutoClient = HeadlessUtils.HasArg(ARGS_AUTO_CLIENT);
+            bool isAutoClient = HeadlessUtils.HasArg(HeadlessArguments.AUTO_CLIENT);
 
             if (!isAutoClient) return;
 
-            if (HeadlessUtils.TryGetArg(ARGS_SERVER_IP, out string argsServerIp))
+            if (HeadlessUtils.TryGetArg(HeadlessArguments.SERVER_IP, out string argsServerIp))
                 serverIp = argsServerIp;
 
             UnityTransport unityTransport = _networkManager.GetComponent<UnityTransport>();
@@ -116,7 +103,15 @@ namespace StinkySteak.NGOBenchmark
             if (!_networkManager.IsServer) return;
 
             AutoRunStressTest();
-            PrintAverageFrameTime();
+            LogFrametime();
+        }
+
+        private void LogFrametime()
+        {
+            int connectedClients = _networkManager.ConnectedClients.Count;
+            float avgFrameTime = _counter.GetAvgFrameTime();
+
+            _frametimeLogger.MonoUpdate(connectedClients, avgFrameTime);
         }
 
         private void AutoRunStressTest()
@@ -126,21 +121,6 @@ namespace StinkySteak.NGOBenchmark
                 _headlessServerProperty.TimerActivateTest = SimulationTimer.SimulationTimer.None;
                 StressTest(_headlessServerProperty.Test);
             }
-        }
-
-        private void PrintAverageFrameTime()
-        {
-            if (!_timerServerLog.IsExpiredOrNotRunning()) return;
-
-            int connectedClients = _networkManager.ConnectedClients.Count;
-            float avgFrameTime = _counter.GetAvgFrameTime();
-
-            _stringBuilder.Clear();
-            _stringBuilder.AppendFormat("Average FrameTime: {0}ms. Connected Clients: {1}\n", avgFrameTime, connectedClients);
-
-            File.AppendAllText(_filePath, _stringBuilder.ToString());
-
-            _timerServerLog = SimulationTimer.SimulationTimer.CreateFromSeconds(_intervalServerLog);
         }
     }
 }
