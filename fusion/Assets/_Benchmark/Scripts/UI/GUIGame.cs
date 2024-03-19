@@ -1,42 +1,30 @@
 using Fusion;
 using StinkySteak.NetcodeBenchmark;
 using StinkySteak.NetcodeBenchmark.Util;
-using System.IO;
-using System.Linq;
-using System.Text;
 using UnityEngine;
 
 namespace StinkySteak.FusionBenchmark
 {
-    public class GUIGame : BaseGUIGame
+    public class GUIGame : BaseGUIGame, INetcodeBenchmarkRunner
     {
         [SerializeField] private FrametimeCounter _counter;
-        [SerializeField] private NetworkRunner _runner;
         [SerializeField] private NetworkProjectConfigAsset _networkProjectConfig;
+        private NetworkRunner _runner;
         private FusionClientSessionDebugger _fusionClientSessionDebugger;
-
-        private const string ARGS_AUTO_CLIENT = "-autoclient";
-        private const string ARGS_AUTO_SERVER = "-autoserver";
-        private const string ARGS_CLIENT_COUNT = "-clientcount";
-
-        private const int STRING_BUILDER_CAPACITY = 100;
-        private StringBuilder _stringBuilder = new(STRING_BUILDER_CAPACITY);
-
-        private SimulationTimer.SimulationTimer _timerServerLog;
-        private float _intervalServerLog = 1f;
-
-        private string _filePath;
+        private FrametimeLogger _frametimeLogger;
 
         protected override void MonoStart()
         {
-            _filePath = Application.persistentDataPath + "/FusionV1ServerOutput.txt";
+            _frametimeLogger = new FrametimeLogger();
+            _frametimeLogger.Initialize(this);
+
             RunAutoServer();
             RunAutoClient();
         }
 
         private void RunAutoServer()
         {
-            bool isAutoServer = HeadlessUtils.HasArg(ARGS_AUTO_SERVER);
+            bool isAutoServer = HeadlessUtils.HasArg(HeadlessArguments.AUTO_SERVER);
 
             if (!isAutoServer) return;
 
@@ -48,17 +36,17 @@ namespace StinkySteak.FusionBenchmark
         {
             int clientCount = 0;
 
-            bool isAutoClient = HeadlessUtils.HasArg(ARGS_AUTO_CLIENT);
+            bool isAutoClient = HeadlessUtils.HasArg(HeadlessArguments.AUTO_CLIENT);
 
             if (!isAutoClient) return;
 
-            if (HeadlessUtils.TryGetArg(ARGS_CLIENT_COUNT, out string argsClientCount))
+            if (HeadlessUtils.TryGetArg(HeadlessArguments.CLIENT_COUNT, out string argsClientCount))
             {
                 clientCount = int.Parse(argsClientCount);
             }
 
             _networkProjectConfig.Config.PeerMode = NetworkProjectConfig.PeerModes.Multiple;
-            
+
             for (int i = 0; i < clientCount; i++)
             {
                 NetworkRunner runner = new GameObject($"Runner-{i}").AddComponent<NetworkRunner>();
@@ -124,17 +112,17 @@ namespace StinkySteak.FusionBenchmark
             }
         }
 
+        private bool IsRunnerRunning()
+            => _runner != null && _runner.IsRunning;
+
         protected override void UpdateNetworkStats()
         {
-            if (_runner == null) return;
-
-            if (!_runner.IsRunning) return;
+            if (!IsRunnerRunning()) return;
 
             if (_runner.IsServer)
             {
                 _textLatency.SetText("Latency: 0ms (Server)");
                 AutoRunStressTest();
-                PrintAverageFrameTime();
                 return;
             }
 
@@ -151,20 +139,31 @@ namespace StinkySteak.FusionBenchmark
             }
         }
 
-        private void PrintAverageFrameTime()
+        protected override void MonoUpdate()
         {
-            if (!_timerServerLog.IsExpiredOrNotRunning()) return;
-
-            int connectedClients = _runner.ActivePlayers.Count();
-            float avgFrameTime = _counter.GetAvgFrameTime();
-
-            _stringBuilder.Clear();
-            _stringBuilder.AppendFormat("Average FrameTime: {0}ms. Connected Clients: {1}\n", avgFrameTime, connectedClients);
-
-            File.AppendAllText(_filePath, _stringBuilder.ToString());
-
-            _timerServerLog = SimulationTimer.SimulationTimer.CreateFromSeconds(_intervalServerLog);
+            PrintAverageFrameTime();
         }
 
+        private void PrintAverageFrameTime()
+        {
+            if (!IsRunnerRunning()) return;
+
+            _frametimeLogger.MonoUpdate();
+        }
+
+        public int GetConnectedClients()
+        {
+            int players = 0;
+
+            foreach (PlayerRef player in _runner.ActivePlayers)
+                players++;
+
+            return players;
+        }
+
+        public float GetAverageFrameTime()
+        {
+            return _counter.GetAvgFrameTime();
+        }
     }
 }
