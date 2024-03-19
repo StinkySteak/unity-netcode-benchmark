@@ -201,7 +201,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Start Test 4 (Self Net Wander)
+  m_text: Start Test 4 (Self Net All Axis)
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -662,7 +662,7 @@ GameObject:
   - component: {fileID: 5784029662372998501}
   - component: {fileID: 8951811057677017766}
   m_Layer: 5
-  m_Name: ButtonStressTest_5
+  m_Name: ButtonStressTest_4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1678,12 +1678,12 @@ MonoBehaviour:
     ButtonExecute: {fileID: 494562642055768704}
     SpawnCount: 500
     Prefab: {fileID: 3557300497773733677, guid: d276b2db48c1c264eb49375994cdeb32, type: 3}
+  _test_4:
+    ButtonExecute: {fileID: 8951811057677017766}
+    SpawnCount: 200
+    Prefab: {fileID: 3557300497773733677, guid: aa49dc41a8a9af942ba5e06c46d44abe, type: 3}
   _networkManagerPrefab: {fileID: 5645368744567004294, guid: 7c276cd3e2eaf514f918133122f283ed, type: 3}
   _counter: {fileID: 0}
-  _test_4:
-    ButtonExecute: {fileID: 0}
-    SpawnCount: 0
-    Prefab: {fileID: 0}
 --- !u!1 &7872921490994049569
 GameObject:
   m_ObjectHideFlags: 0

@@ -6,7 +6,7 @@ using UnityEngine;
 
 namespace StinkySteak.NGOBenchmark
 {
-    public class GUIGame : BaseGUIGame
+    public class GUIGame : BaseGUIGame, INetcodeBenchmarkRunner
     {
         [SerializeField] private NetworkManager _networkManagerPrefab;
         [SerializeField] private FrametimeCounter _counter;
@@ -17,7 +17,7 @@ namespace StinkySteak.NGOBenchmark
         protected override void MonoStart()
         {
             _frametimeLogger = new();
-            _frametimeLogger.Initialize();
+            _frametimeLogger.Initialize(this);
             _networkManager = Instantiate(_networkManagerPrefab);
 
             RegisterPrefabs(new StressTestEssential[] { _test_1, _test_2, _test_3, _test_4 });
@@ -95,8 +95,7 @@ namespace StinkySteak.NGOBenchmark
             _textLatency.SetText("Latency: {0}ms", rtt);
         }
 
-
-        protected override void MonoLateUpdate()
+        protected override void MonoUpdate()
         {
             if (!HeadlessUtils.IsHeadlessMode()) return;
 
@@ -108,10 +107,7 @@ namespace StinkySteak.NGOBenchmark
 
         private void LogFrametime()
         {
-            int connectedClients = _networkManager.ConnectedClients.Count;
-            float avgFrameTime = _counter.GetAvgFrameTime();
-
-            _frametimeLogger.MonoUpdate(connectedClients, avgFrameTime);
+            _frametimeLogger.MonoUpdate();
         }
 
         private void AutoRunStressTest()
@@ -121,6 +117,16 @@ namespace StinkySteak.NGOBenchmark
                 _headlessServerProperty.TimerActivateTest = SimulationTimer.SimulationTimer.None;
                 StressTest(_headlessServerProperty.Test);
             }
+        }
+
+        public int GetConnectedClients()
+        {
+            return _networkManager.ConnectedClients.Count;
+        }
+
+        public float GetAverageFrameTime()
+        {
+            return _counter.GetAvgFrameTime();
         }
     }
 }
