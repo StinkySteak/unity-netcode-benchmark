@@ -14,6 +14,8 @@ namespace StinkySteak.FusionBenchmark
 
         public override void Spawned()
         {
+            Runner.SetIsSimulated(Object, true);
+
             if (!Object.HasStateAuthority) return;
 
             _config.ApplyConfig(ref _wrapper);
