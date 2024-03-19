@@ -4,12 +4,12 @@ using UnityEngine;
 
 namespace StinkySteak.NGOBenchmark
 {
-    public class SelfNetworkedWanderBehaviour : NetworkBehaviour
+    public class SelfNetworkedSinRandomBehaviour : NetworkBehaviour
     {
         [SerializeField] private BehaviourConfig _config;
 
         private NetworkVariable<Vector3> _serverPosition = new NetworkVariable<Vector3>();
-        private WanderMoveWrapper _wrapper;
+        private SinRandomMoveWrapper _wrapper;
         
         public override void OnNetworkSpawn()
         {
