@@ -1,37 +1,25 @@
 using Netick.Unity;
 using StinkySteak.NetcodeBenchmark;
 using StinkySteak.NetcodeBenchmark.Util;
-using System.IO;
-using System.Text;
 using UnityEngine;
 using Network = Netick.Unity.Network;
 
 namespace StinkySteak.NetickBenchmark
 {
-    public class GUIGame : BaseGUIGame
+    public class GUIGame : BaseGUIGame, INetcodeBenchmarkRunner
     {
         [SerializeField] private NetworkTransportProvider _transportProvider;
         [SerializeField] private NetworkSandbox _sandboxPrefab;
         [SerializeField] private int _port;
         [SerializeField] private FrametimeCounter _counter;
-
-        private const int STRING_BUILDER_CAPACITY = 100;
-        private StringBuilder _stringBuilder = new(STRING_BUILDER_CAPACITY);
+        private FrametimeLogger _frametimeLogger;
 
         private NetworkSandbox _activeSandbox;
-        private const string ARGS_AUTO_CLIENT = "-autoclient";
-        private const string ARGS_AUTO_SERVER = "-autoserver";
-        private const string ARGS_CLIENT_COUNT = "-clientcount";
-        private const string ARGS_SERVER_IP = "-serverip";
-
-        private SimulationTimer.SimulationTimer _timerServerLog;
-        private float _intervalServerLog = 1f;
-        private string _filePath;
-
 
         protected override void MonoStart()
         {
-            _filePath = Application.persistentDataPath + "/NetickServerOutput.txt";
+            _frametimeLogger = new FrametimeLogger();
+            _frametimeLogger.Initialize(this);
 
             RunAutoServer();
             RunAutoClient();
@@ -39,7 +27,7 @@ namespace StinkySteak.NetickBenchmark
 
         private void RunAutoServer()
         {
-            bool isAutoServer = HeadlessUtils.HasArg(ARGS_AUTO_SERVER);
+            bool isAutoServer = HeadlessUtils.HasArg(HeadlessArguments.AUTO_SERVER);
 
             if (!isAutoServer) return;
 
@@ -52,16 +40,16 @@ namespace StinkySteak.NetickBenchmark
             int clientCount = 0;
             string serverIp = string.Empty;
 
-            bool isAutoClient = HeadlessUtils.HasArg(ARGS_AUTO_CLIENT);
+            bool isAutoClient = HeadlessUtils.HasArg(HeadlessArguments.AUTO_CLIENT);
 
             if (!isAutoClient) return;
 
-            if (HeadlessUtils.TryGetArg(ARGS_CLIENT_COUNT, out string argsClientCount))
+            if (HeadlessUtils.TryGetArg(HeadlessArguments.CLIENT_COUNT, out string argsClientCount))
             {
                 clientCount = int.Parse(argsClientCount);
             }
 
-            if (HeadlessUtils.TryGetArg(ARGS_SERVER_IP, out string argsServerIp))
+            if (HeadlessUtils.TryGetArg(HeadlessArguments.SERVER_IP, out string argsServerIp))
             {
                 serverIp = argsServerIp;
             }
@@ -103,9 +91,6 @@ namespace StinkySteak.NetickBenchmark
             _textLatency.SetText("Latency: {0}ms\n", _activeSandbox.Monitor.RTT.Latest * 1_000);
 
             if (!_activeSandbox.IsServer) return;
-
-            AutoRunStressTest();
-            PrintAverageFrameTime();
         }
 
         private void AutoRunStressTest()
@@ -117,19 +102,31 @@ namespace StinkySteak.NetickBenchmark
             }
         }
 
+        protected override void MonoUpdate()
+        {
+            if (!HeadlessUtils.IsHeadlessMode()) return;
+
+            if (_activeSandbox == null) return;
+
+            if (!_activeSandbox.IsServer) return;
+
+            AutoRunStressTest();
+            PrintAverageFrameTime();
+        }
+
         private void PrintAverageFrameTime()
         {
-            if (!_timerServerLog.IsExpiredOrNotRunning()) return;
+            _frametimeLogger.MonoUpdate();
+        }
 
-            int connectedClients = _activeSandbox.ConnectedClients.Count;
-            float avgFrameTime = _counter.GetAvgFrameTime();
+        public int GetConnectedClients()
+        {
+            return _activeSandbox.ConnectedClients.Count;
+        }
 
-            _stringBuilder.Clear();
-            _stringBuilder.AppendFormat("Average FrameTime: {0}ms. Connected Clients: {1}\n", avgFrameTime, connectedClients);
-
-            File.AppendAllText(_filePath, _stringBuilder.ToString());
-
-            _timerServerLog = SimulationTimer.SimulationTimer.CreateFromSeconds(_intervalServerLog);
+        public float GetAverageFrameTime()
+        {
+            return _counter.GetAvgFrameTime();
         }
     }
 }
