@@ -45,7 +45,10 @@ namespace StinkySteak.FusionBenchmark
                 clientCount = int.Parse(argsClientCount);
             }
 
-            _networkProjectConfig.Config.PeerMode = NetworkProjectConfig.PeerModes.Multiple;
+            if (clientCount > 1)
+            {
+                _networkProjectConfig.Config.PeerMode = NetworkProjectConfig.PeerModes.Multiple;
+            }
 
             for (int i = 0; i < clientCount; i++)
             {
@@ -62,7 +65,7 @@ namespace StinkySteak.FusionBenchmark
 
         private void OnRunnerInitialized(NetworkRunner runner)
         {
-            print($"OnRunnerInitialized: {runner}");
+            print($"[GUIGame]: OnRunnerInitialized: {runner}");
             _runner = runner;
             RefigureHeadlessServerProperty();
         }
