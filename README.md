@@ -51,10 +51,6 @@ This repository holds the various netcode projects and It's benchmark result suc
 
 # Roadmap
 
-## Planned
-- IL2CPP Server CPU Testing
-- More methods of Server CPU Testing
-
 ## Nice to Have
 - Memory Usage Benchmark
 
