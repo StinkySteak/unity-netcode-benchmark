@@ -47,7 +47,7 @@ This repository holds the various netcode projects and It's benchmark result suc
 - [07/12/23 - LATEST](benchmark-result/bandwidth/07-12-2023.md)
 
 ## Server CPU Usage
-- [17/12/2024 - WIP](benchmark-result/server-cpu/17-03-2024.md)
+- [17/12/2024 - DISCONTINUED](benchmark-result/server-cpu/17-03-2024.md)
 
 # Roadmap
 
