@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "com.tayx.graphy": "https://github.com/Tayx94/graphy.git",
     "com.unity.textmeshpro": "3.0.6",
     "com.unity.toolchain.win-x86_64-linux-x86_64": "2.0.10",
     "com.unity.ugui": "1.0.0",
