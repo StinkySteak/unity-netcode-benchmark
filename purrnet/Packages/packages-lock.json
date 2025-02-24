@@ -1,11 +1,11 @@
 {
   "dependencies": {
     "com.stinkysteak.netcode-benchmarker-util": {
-      "version": "https://github.com/StinkySteak/netcode-benchmarker-util.git",
-      "depth": 0,
-      "source": "git",
-      "dependencies": {},
-      "hash": "92df704899bed405c18cacdc721105899dd2c2d3"
+        "version": "https://github.com/StinkySteak/netcode-benchmarker-util.git",
+        "depth": 0,
+        "source": "git",
+        "dependencies": {},
+        "hash": "c375d03f6ab5581069142b1778397021fc111e81"
     },
     "com.stinkysteak.simulationtimer": {
       "version": "https://github.com/StinkySteak/Unity-Simulation-Timer.git",
