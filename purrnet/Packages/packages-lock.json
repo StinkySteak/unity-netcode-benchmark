@@ -7,6 +7,13 @@
       "dependencies": {},
       "hash": "92df704899bed405c18cacdc721105899dd2c2d3"
     },
+    "com.stinkysteak.simulationtimer": {
+      "version": "https://github.com/StinkySteak/Unity-Simulation-Timer.git",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {},
+      "hash": "fba5fb60854fda4e98d2b5a81dc8751da72dea16"
+    },
     "com.tayx.graphy": {
       "version": "https://github.com/Tayx94/graphy.git",
       "depth": 0,
