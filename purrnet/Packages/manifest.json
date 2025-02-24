@@ -4,6 +4,7 @@
     "com.unity.textmeshpro": "3.0.6",
     "com.unity.toolchain.win-x86_64-linux-x86_64": "2.0.10",
     "com.unity.ugui": "1.0.0",
+    "purrnet": "https://github.com/PurrNet/PurrNet.git?path=/Assets/PurrNet#release",
     "com.unity.modules.ai": "1.0.0",
     "com.unity.modules.androidjni": "1.0.0",
     "com.unity.modules.animation": "1.0.0",

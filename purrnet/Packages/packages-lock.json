@@ -7,6 +7,20 @@
       "dependencies": {},
       "hash": "1cdf31613ea294970560f0bbb2ee2d1f0cd16a22"
     },
+    "com.unity.nuget.mono-cecil": {
+      "version": "1.11.4",
+      "depth": 1,
+      "source": "registry",
+      "dependencies": {},
+      "url": "https://packages.unity.com"
+    },
+    "com.unity.nuget.newtonsoft-json": {
+      "version": "3.2.1",
+      "depth": 1,
+      "source": "registry",
+      "dependencies": {},
+      "url": "https://packages.unity.com"
+    },
     "com.unity.sysroot": {
       "version": "2.0.10",
       "depth": 1,
@@ -50,6 +64,16 @@
         "com.unity.modules.ui": "1.0.0",
         "com.unity.modules.imgui": "1.0.0"
       }
+    },
+    "purrnet": {
+      "version": "https://github.com/PurrNet/PurrNet.git?path=/Assets/PurrNet#release",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {
+        "com.unity.nuget.mono-cecil": "1.11.4",
+        "com.unity.nuget.newtonsoft-json": "3.2.1"
+      },
+      "hash": "1aa4c6f6f43c7e469845c4fc67b731208e9370e5"
     },
     "com.unity.modules.ai": {
       "version": "1.0.0",
